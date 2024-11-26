@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.hexagonal</groupId>
 	<artifactId>user-auto-backend</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>user-auto</name>
 	<description>API Restful para Sistema de Usuários de Carros</description>
 	<properties>
