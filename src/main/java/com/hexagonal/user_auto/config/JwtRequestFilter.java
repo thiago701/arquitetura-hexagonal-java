@@ -37,7 +37,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             if (request.getRequestURI().contains("/api/signin")
                     || request.getRequestURI().contains("/h2-console/")
                     || request.getRequestURI().contains("swagger-ui")
-                    || request.getRequestURI().contains("v3/api-docs")) {
+                    || request.getRequestURI().contains("v3/api-docs")
+                    || request.getRequestURI().equals("/")) {
                 chain.doFilter(request, response);
                 return;
             }

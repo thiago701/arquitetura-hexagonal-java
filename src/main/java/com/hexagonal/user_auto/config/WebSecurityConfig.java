@@ -36,9 +36,13 @@ public class WebSecurityConfig {
         http
                 .csrf(csrf -> csrf.disable()) // Desabilitar CSRF para APIs RESTful
                 .authorizeHttpRequests(auth -> auth
-                        // Usar AntPathRequestMatcher para o console do H2
                         .requestMatchers(new AntPathRequestMatcher("/h2-console/**")).permitAll()
-                        // Usar MvcRequestMatcher para APIs que são tratadas no contexto MVC
+                        // Permitir acesso ao Swagger UI
+                        .requestMatchers(new AntPathRequestMatcher("/swagger-ui.html")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/swagger-ui/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/v3/api-docs/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/")).permitAll()
+                        // APIs abertas
                         .requestMatchers(new MvcRequestMatcher(introspector, "/api/signin")).permitAll()
                         .requestMatchers(new MvcRequestMatcher(introspector, "/api/uploads/**")).authenticated()
                         .anyRequest().authenticated()
