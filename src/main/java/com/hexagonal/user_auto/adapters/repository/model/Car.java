@@ -1,6 +1,7 @@
 package com.hexagonal.user_auto.adapters.repository.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
@@ -15,6 +16,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(exclude = "user")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Car {
 
     @Id

@@ -16,6 +16,7 @@ import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/users")
 @Tag(name = "User Controller", description = "Operações relacionadas aos usuarios")

@@ -36,9 +36,11 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             // OBS.: Apesar do anunciado informar que /api/users não precisa de autenticação, foi mantido por questoes de segurança e LGPD.
             if (request.getRequestURI().contains("/api/signin")
                     || request.getRequestURI().contains("/h2-console/")
+                    || request.getRequestURI().contains("/api/cars_utilization")
                     || request.getRequestURI().contains("swagger-ui")
                     || request.getRequestURI().contains("v3/api-docs")
-                    || request.getRequestURI().equals("/")) {
+                    || request.getRequestURI().equals("/")
+                    || request.getRequestURI().equals("/favicon.ico")) {
                 chain.doFilter(request, response);
                 return;
             }
@@ -47,7 +49,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
             if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {
                 response.setStatus(HttpStatus.UNAUTHORIZED.value());
-                response.getWriter().write("{\"error\": \"Unauthorized\"}");
+                response.getWriter().write("Boa{\"error\": \"Unauthorized\"}");
                 response.setContentType("application/json");
                 return;
             }

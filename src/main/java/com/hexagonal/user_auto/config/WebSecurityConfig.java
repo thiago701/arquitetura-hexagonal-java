@@ -41,8 +41,10 @@ public class WebSecurityConfig {
                         .requestMatchers(new AntPathRequestMatcher("/swagger-ui.html")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/swagger-ui/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/v3/api-docs/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher(("/favicon.ico"))).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/")).permitAll()
                         // APIs abertas
+                        .requestMatchers(new MvcRequestMatcher(introspector,"/api/cars_utilization/**")).permitAll()
                         .requestMatchers(new MvcRequestMatcher(introspector, "/api/signin")).permitAll()
                         .requestMatchers(new MvcRequestMatcher(introspector, "/api/uploads/**")).authenticated()
                         .anyRequest().authenticated()

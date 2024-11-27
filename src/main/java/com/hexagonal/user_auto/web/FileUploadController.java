@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/uploads")
 @Tag(name = "Upload Controller", description = "Operações relacionadas ao envio de fotos")
@@ -20,7 +21,7 @@ public class FileUploadController {
     private FileStorageUserCase fileStorageUserCase;
 
     @PostMapping("/user/photo/{id}")
-    @Operation(summary = "Upload user", description = "Envia uma foto de usuario")
+    @Operation(summary = "Enviar foto de usuário", description = "Envia uma foto de usuario")
     public ResponseEntity<String> uploadUserPhoto(@PathVariable Long id, @RequestParam("file") MultipartFile file) {
         try {
             String filePath = fileStorageUserCase.storeFile(file, "user/"+id); //Pasta user + ID do usuario
@@ -33,7 +34,7 @@ public class FileUploadController {
     }
 
     @PostMapping("/car/photo/{id}")
-    @Operation(summary = "Upload car", description = "Envia uma foto do carro")
+    @Operation(summary = "Enviar foto do carro", description = "Envia uma foto do carro")
     public ResponseEntity<String> uploadCarPhoto(@PathVariable Long id, @RequestParam("file") MultipartFile file) {
         try {
             String filePath = fileStorageUserCase.storeFile(file, "car/"+id); // Pasta car + ID do carro

@@ -1,15 +1,17 @@
 package com.hexagonal.user_auto.adapters.repository.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "tb_car_utilization")
+@Table(name = "tb_cars_utilization")
 @Data
-@ToString
+@ToString(exclude = "user.cars")
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class CarUtilization {
 
     @Id

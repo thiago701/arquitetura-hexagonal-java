@@ -8,6 +8,7 @@ import com.hexagonal.user_auto.adapters.repository.model.User;
 import com.hexagonal.user_auto.core.port.in.CarPort;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -25,7 +26,7 @@ public class CarUtilizationUserCase {
         this.userRepository = userRepository;
     }
 
-    public void incrementCarUsage(Long carId, String userLogin) {
+    public Car incrementCarUsage(Long carId, String userLogin) {
         // Busca o carro pelo ID
         Car car = carPort.findCarById(carId);
         if (car == null) {
@@ -47,5 +48,10 @@ public class CarUtilizationUserCase {
         // Incrementa o contador de utilização e salva
         carUsage.incrementUsage();
         carUtilizationRepository.save(carUsage);
+        return car;
+    }
+
+    public List<CarUtilization> getAll() {
+        return carUtilizationRepository.findAll();
     }
 }

@@ -3,6 +3,7 @@ package com.hexagonal.user_auto.web;
 import com.hexagonal.user_auto.adapters.repository.model.Car;
 import com.hexagonal.user_auto.adapters.repository.model.User;
 import com.hexagonal.user_auto.core.usercase.CarUserCase;
+import com.hexagonal.user_auto.core.usercase.CarUtilizationUserCase;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -16,15 +17,18 @@ import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/cars")
 @Tag(name = "Car Controller", description = "Operações relacionadas aos carros")
 public class CarController {
 
     private final CarUserCase carUserCase;
+    private final CarUtilizationUserCase carUtilizationUserCase;
 
-    public CarController(CarUserCase carService) {
+    public CarController(CarUserCase carService, CarUtilizationUserCase carUtilizationUserCase) {
         this.carUserCase = carService;
+        this.carUtilizationUserCase = carUtilizationUserCase;
     }
 
     @PostMapping
@@ -61,10 +65,12 @@ public class CarController {
         return ResponseEntity.noContent().build();
     }
 
+    // INSCREMENTA UTILIZACAO DO CARRO (++)
     @GetMapping("/{id}")
-    @Operation(summary = "Buscar um Carro Específico pelo ID", description = "Busca um carro específico do usuário.")
+    @Operation(summary = "Buscar um Carro Específico pelo ID e Incrementa uso", description = "Busca um carro específico do usuário e incrementa utilização.")
     public ResponseEntity<Car> getCarById(@PathVariable Long id) {
-        return ResponseEntity.ok(carUserCase.findCarByIdAndUserLogin(id, getUsuarioLogado().getLogin()));
+        Car car = carUtilizationUserCase.incrementCarUsage(id, getUsuarioLogado().getLogin());
+        return ResponseEntity.ok(car);
     }
 
     @GetMapping

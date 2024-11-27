@@ -1,0 +1,626 @@
+{
+	"info": {
+		"_postman_id": "9a9500ea-885d-435b-ab40-c0bbcf63afef",
+		"name": "Auto Car (Desafio Pitang)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10482842"
+	},
+	"item": [
+		{
+			"name": "cars",
+			"item": [
+				{
+					"name": "Listar todos os carros do usuário logado",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/cars",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Heroku: Listar todos os carros do usuário logado",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://user-auto-backend-2dd11eab029e.herokuapp.com/api/cars",
+							"protocol": "https",
+							"host": [
+								"user-auto-backend-2dd11eab029e",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"cars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar um carro do usuário logado pelo id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/cars/404",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cars",
+								"404"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover um carro do usuário logado pelo id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/cars/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cars",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar um novo carro para o usuário logado",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "   {\r\n        \"yearManufacture\": 2024,\r\n        \"licensePlate\": \"SSS-0001\",\r\n        \"model\": \"Honda\",\r\n        \"color\": \"Prata\",\r\n        \"createdAt\": \"2024-11-27\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/cars",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar um carro do usuário logado pelo id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "   {       \r\n        \"yearManufacture\": 2023,\r\n        \"licensePlate\": \"SKY-0001\",\r\n        \"model\": \"Corolla\",\r\n        \"color\": \"Prata\",\r\n        \"createdAt\": \"2024-10-15\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/cars/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cars",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRD Listar todos os carros",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"lucas88\",\r\n    \"password\": \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://user-auto-backend-2dd11eab029e.herokuapp.com/api/signin",
+							"protocol": "https",
+							"host": [
+								"user-auto-backend-2dd11eab029e",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "Listar todos os usuários",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar um usuário pelo id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/users/101",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"101"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar um novo usuário",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Mariana\",\r\n    \"lastName\": \"Silva\",\r\n    \"email\": \"mariana.silva23@email.com\",\r\n    \"birthday\": \"1985-09-10\",\r\n    \"login\": \"mariana85\",\r\n    \"password\": \"senhaSegura123\",\r\n    \"phone\": \"998877665\",\r\n    \"createdAt\": \"2024-11-25\",\r\n    \"lastlogin\": \"2024-11-25\",\r\n    \"cars\": [\r\n        {\r\n            \"yearManufacture\": 2012,\r\n            \"licensePlate\": \"XYZ-4567\",\r\n            \"model\": \"Corolla\",\r\n            \"color\": \"Branco\",\r\n            \"createdAt\": \"2024-11-25\"\r\n        },\r\n        {\r\n            \"yearManufacture\": 2018,\r\n            \"licensePlate\": \"LMN-2345\",\r\n            \"model\": \"Fit\",\r\n            \"color\": \"Azul\",\r\n            \"createdAt\": \"2024-11-25\"\r\n        },\r\n        {\r\n            \"yearManufacture\": 2021,\r\n            \"licensePlate\": \"QRS-7890\",\r\n            \"model\": \"Kwid\",\r\n            \"color\": \"Cinza\",\r\n            \"createdAt\": \"2024-11-25\"\r\n        }\r\n    ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar um usuário pelo id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"firstName\": \"João\",\r\n        \"lastName\": \"Silva\",\r\n        \"email\": \"joao.silva@email.com\",\r\n        \"birthday\": \"1985-08-15\",\r\n        \"login\": \"joao123\",\r\n        \"password\": \"35635\",\r\n        \"phone\": \"1234567890\",\r\n        \"cars\": [\r\n            {\r\n                \"id\": 101,\r\n                \"yearManufacture\": 1999,\r\n                \"licensePlate\": \"ABC-1222\",\r\n                \"model\": \"Monza\",\r\n                \"color\": \"Prata\",\r\n                \"createdAt\": \"2024-11-24\"\r\n            }\r\n        ],\r\n        \"createdAt\": \"2024-11-24\",\r\n        \"lastLogin\": null\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/users/101",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"101"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover um usuário pelo id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/users/101",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"101"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Realizar login (Signin)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Verifica se a resposta tem o status 200 OK\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Parse o corpo da resposta JSON\r",
+							"let responseJson = pm.response.json();\r",
+							"\r",
+							"// Verifique se o token existe na resposta\r",
+							"\r",
+							"if (responseJson.token) {\r",
+							"    // Salva o token como uma variável de ambiente\r",
+							"    pm.environment.set(\"TOKEN\", responseJson.token);\r",
+							"    console.log(pm.environment.get(\"TOKEN\"));\r",
+							"    console.log(\"Token salvo com sucesso: \" + responseJson.token);\r",
+							"} else {\r",
+							"    console.error(\"Token não encontrado na resposta.\");\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"fernandac\",\r\n    \"password\": \"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retornar as informações do usuário logado",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/me",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Enviar foto de usuário",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/tgg_/Pictures/Screenshots/Captura de tela 2024-09-30 232553.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/uploads/user/photo/202",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"uploads",
+						"user",
+						"photo",
+						"202"
+					]
+				},
+				"description": "Generated from cURL: curl --location --request POST 'http://localhost:8080/api/uploads/user/photo' \\\n--header 'Content-Type: multipart/form-data' \\\n--form 'file=@/path/to/your/user_photo.jpg'"
+			},
+			"response": []
+		},
+		{
+			"name": "Enviar foto do carro",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/tgg_/Pictures/AESCA/Ícones AESCA/icons-aesca/Bebês 0-4 anos.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/uploads/car/photo/505",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"uploads",
+						"car",
+						"photo",
+						"505"
+					]
+				},
+				"description": "Generated from cURL: curl --location --request POST 'http://localhost:8080/api/uploads/car/photo' \\\n--header 'Content-Type: multipart/form-data' \\\n--form 'file=@/path/to/your/car_photo.jpg'"
+			},
+			"response": []
+		},
+		{
+			"name": "Carros utilizados",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{TOKEN}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/cars_utilization",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cars_utilization"
+					]
+				},
+				"description": "Generated from cURL: curl --location --request GET 'http://localhost:8080/api/rankings/users'\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Heroku: https://user-auto-backend-2dd11eab029e.herokuapp.com/api/signin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"lucas88\",\r\n    \"password\": \"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://user-auto-backend-2dd11eab029e.herokuapp.com/api/signin",
+					"protocol": "https",
+					"host": [
+						"user-auto-backend-2dd11eab029e",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "TOKEN",
+			"value": "eyJzdWIiOiJyb290IiwiaWF0IjoxNzMyNDg4MDA1ODg4fQ"
+		}
+	]
+}
