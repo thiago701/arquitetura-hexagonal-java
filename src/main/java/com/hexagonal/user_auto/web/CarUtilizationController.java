@@ -20,7 +20,7 @@ import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "https://user-auto-front-dac15affdc70.herokuapp.com"})
 @RestController
 @RequestMapping("/api/cars_utilization")
 @Tag(name = "Car Controller", description = "Operações relacionadas ao ranking de usuários e seus carros")

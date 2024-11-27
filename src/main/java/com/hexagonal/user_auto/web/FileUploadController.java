@@ -11,7 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "https://user-auto-front-dac15affdc70.herokuapp.com"})
 @RestController
 @RequestMapping("/api/uploads")
 @Tag(name = "Upload Controller", description = "Operações relacionadas ao envio de fotos")

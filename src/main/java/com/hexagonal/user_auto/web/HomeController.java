@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.net.URI;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "https://user-auto-front-dac15affdc70.herokuapp.com"})
 @RestController
 @Tag(name = "Home Controller", description = "Home padrão que redireciona '/' para o Swagger")
 public class HomeController {
