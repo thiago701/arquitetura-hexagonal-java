@@ -281,8 +281,7 @@ Você pode importar este arquivo diretamente para o Postman para começar a usar
 
 ## Link da Coleção no Postman
 
-Confira o arquivo da coleção disponível em:
-[Auto Car (Desafio Pitang).postman_collection.json](docs%2FAuto%20Car%20%28Desafio%20Pitang%29.postman_collection.json)
+Confira o arquivo da coleção disponível em: [AutoCar.postman_collection.json](docs%2FAutoCar.postman_collection.json)
 
 ---
 
